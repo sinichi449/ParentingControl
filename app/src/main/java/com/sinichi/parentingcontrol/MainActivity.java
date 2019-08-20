@@ -5,11 +5,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.widget.Adapter;
 
 import com.sinichi.parentingcontrol.model.Model;
 import com.sinichi.parentingcontrol.recycleadapter.RvAdapter;
+import com.sinichi.parentingcontrol.rest_api.Jadwal;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -28,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         initComponents();
         initRecyclerView();
+
+        AlarmShalat as = new AlarmShalat(this);
+        as.getDataFromCloud();
     }
 
     private void initComponents() {
@@ -46,5 +51,6 @@ public class MainActivity extends AppCompatActivity {
         Model model = new Model(jumlahSholat, isMembantuOrangTua, isSekolah);
         return model;
     }
+
 }
 
