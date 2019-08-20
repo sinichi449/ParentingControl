@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sinichi.parentingcontrol.R;
 import com.sinichi.parentingcontrol.model.Model;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {

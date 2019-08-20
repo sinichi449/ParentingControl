@@ -10,6 +10,7 @@ import android.view.Display;
 import com.sinichi.parentingcontrol.model.Model;
 import com.sinichi.parentingcontrol.recycleadapter.RvAdapter;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         rv.setAdapter(rvAdapter);
         rv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
+
+    private void addModel(List<Model> modelList, String jumlahSholat, boolean isMembantuOrangTua, boolean isSekolah) {
+        Model model = new Model(jumlahSholat, isMembantuOrangTua, isSekolah);
+        modelList.add(model);
+
+    }
+
 
 }
 
