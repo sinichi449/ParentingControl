@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Display;
 
 import com.sinichi.parentingcontrol.model.Model;
 import com.sinichi.parentingcontrol.recycleadapter.RvAdapter;
@@ -34,9 +35,12 @@ public class MainActivity extends AppCompatActivity {
     private void initRecyclerView() {
         Model model = new Model("5", true, false);
         dataList.add(model);
+        Model mode1 = new Model("4", false, true);
+        dataList.add(mode1);
         rvAdapter = new RvAdapter(dataList);
         rv.setAdapter(rvAdapter);
         rv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
+
 }
 
