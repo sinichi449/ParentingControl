@@ -18,27 +18,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TableRow
+                android:id="@+id/tableRow"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:background="#74000000"
+                app:layout_constraintBottom_toTopOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/tv_tanggal"
+                app:layout_constraintVertical_bias="1.0"
+                tools:layout_editor_absoluteX="0dp" />
+
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="47dp"
-                android:layout_height="49dp"
+                android:layout_width="38dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_membantu"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView"
-                android:background="@drawable/ic_membantu"/>
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="47dp"
-                android:layout_height="48dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_sholat"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_tanggal"
-                android:background="@drawable/ic_sholat" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_tanggal" />
 
             <TextView
                 android:id="@+id/textView"
@@ -47,31 +59,34 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:text="Sholat"
-                app:fontFamily="sans-serif-condensed"
+                android:textColor="#000000"
+                app:fontFamily="@font/arial"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="@+id/imageView" />
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="49dp"
-                android:layout_height="55dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="8dp"
+                android:background="@drawable/ic_sekolah"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                android:background="@drawable/ic_sekolah"/>
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <TextView
                 android:id="@+id/a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginLeft="13dp"
                 android:text="Membantu Orang Tua"
+                android:textColor="#000000"
+                app:fontFamily="@font/arial"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toTopOf="@+id/imageView2" />
@@ -84,6 +99,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginBottom="8dp"
                 android:text="Sekolah"
+                android:textColor="#000000"
+                app:fontFamily="@font/arial"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3" />
@@ -92,11 +109,11 @@
                 android:id="@+id/tv_hari"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:text="Sabtu"
                 android:textColor="#000000"
-                app:fontFamily="serif"
+                app:fontFamily="@font/arial"
                 app:layout_constraintStart_toEndOf="@+id/tv_tanggal"
                 app:layout_constraintTop_toTopOf="@+id/tv_tanggal" />
 
@@ -104,9 +121,11 @@
                 android:id="@+id/tv_jumlahSholat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
                 android:text="4"
+                android:textColor="#000000"
+                app:fontFamily="@font/arial"
                 app:layout_constraintBottom_toBottomOf="@+id/textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/textView" />
@@ -134,8 +153,8 @@
 
             <TextView
                 android:id="@+id/tv_tanggal"
-                android:layout_width="49dp"
-                android:layout_height="37dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="20dp"
@@ -143,22 +162,27 @@
                 android:textColor="#000000"
                 android:textSize="30sp"
                 android:textStyle="bold"
+                app:fontFamily="@font/arial"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
                 android:background="#74000000"
-                app:layout_constraintBottom_toTopOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/tv_tanggal"
-                tools:layout_editor_absoluteX="8dp" />
+                app:layout_constraintBottom_toTopOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                tools:layout_editor_absoluteX="0dp" />
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
                 android:background="#74000000"
+                app:layout_constraintBottom_toTopOf="@+id/imageView2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -167,11 +191,13 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:text="Maret 2018"
                 android:textColor="#000000"
-                app:fontFamily="serif"
-                tools:layout_editor_absoluteX="65dp"
-                tools:layout_editor_absoluteY="39dp" />
+                app:fontFamily="@font/arial"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_tanggal"
+                app:layout_constraintStart_toEndOf="@+id/tv_tanggal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
