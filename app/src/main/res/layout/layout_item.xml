@@ -27,7 +27,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
-                tools:srcCompat="@drawable/ic_membantuOrtu" />
+                android:src="@drawable/ic_membantu"/>
 
             <ImageView
                 android:id="@+id/imageView"
