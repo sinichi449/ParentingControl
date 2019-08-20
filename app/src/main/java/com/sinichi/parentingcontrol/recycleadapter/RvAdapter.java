@@ -35,7 +35,9 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
         Model model = dataList.get(position);
         holder.tvJumlahSholat.setText(model.getJumlahSholat());
         holder.chkMembantuOrtu.setChecked(model.isMembantuOrangTua());
+        holder.chkMembantuOrtu.setEnabled(false);
         holder.chkSekolah.setChecked(model.isSekolah());
+        holder.chkSekolah.setEnabled(false);
     }
 
     @Override
