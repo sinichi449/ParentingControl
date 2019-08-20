@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView rv;
     private RvAdapter rvAdapter;
-    private List<Model> models;
+    private List<Model> dataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        Model model = new Model("4", true, false);
-        models.add(model);
-        rvAdapter = new RvAdapter(models);
+        Model model = new Model("5", true, false);
+        dataList.add(model);
+        rvAdapter = new RvAdapter(dataList);
         rv.setAdapter(rvAdapter);
-        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 }
 
