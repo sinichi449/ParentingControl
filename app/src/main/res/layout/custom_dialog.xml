@@ -10,31 +10,36 @@
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Hari" />
+        android:hint="Hari"
+        android:inputType="text"/>
     <EditText
         android:id="@+id/edt_tanggal"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tanggal" />
+        android:hint="Tanggal"
+        android:inputType="number"/>
     <EditText
         android:id="@+id/edt_bulan"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Bulan" />
+        android:hint="Bulan"
+        android:inputType="number"/>
     <EditText
         android:id="@+id/edt_tahun"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tahun" />
+        android:hint="Tahun"
+        android:inputType="number"/>
     <EditText
         android:id="@+id/edt_jumlahSholat"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Jumlah Shalat" />
+        android:hint="Jumlah Shalat"
+        android:inputType="number"/>
 
     <CheckBox
         android:id="@+id/chkbx_addMembantuOrtu"

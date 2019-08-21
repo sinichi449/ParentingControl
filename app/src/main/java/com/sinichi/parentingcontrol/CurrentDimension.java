@@ -9,30 +9,49 @@ public class CurrentDimension {
     String getDays() {
         calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
+        String hari = "";
         switch (day) {
             case Calendar.SUNDAY:
-                return "Minggu";
+                hari = "Minggu";
                 break;
             case Calendar.MONDAY:
-                return "Senin";
+                hari = "Senin";
                 break;
             case Calendar.TUESDAY:
-                return "Selasa";
+                hari = "Selasa";
                 break;
             case Calendar.WEDNESDAY:
-                return "Rabu";
+                hari =  "Rabu";
                 break;
             case Calendar.THURSDAY:
-                return "Kamis";
+                hari = "Kamis";
                 break;
             case Calendar.FRIDAY:
-                return "Jum'at";
+                hari = "Jum'at";
                 break;
             case Calendar.SATURDAY:
-                return "Sabtu";
+                hari = "Sabtu";
                 break;
         }
-        return "Failed to getDays";
+        return hari;
+    }
+
+    String getDate() {
+        calendar = Calendar.getInstance();
+        int date = calendar.get(Calendar.DATE);
+        return String.valueOf(date);
+    }
+
+    String getMonth() {
+        calendar = Calendar.getInstance();
+        int month = calendar.get(Calendar.MONTH);
+        return String.valueOf(month);
+    }
+
+    String getYear() {
+        calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        return String.valueOf(year);
     }
 
 }
