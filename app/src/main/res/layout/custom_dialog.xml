@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
+
+    <EditText
+        android:id="@+id/edt_hari"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hari" />
+    <EditText
+        android:id="@+id/edt_tanggal"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tanggal" />
+    <EditText
+        android:id="@+id/edt_bulan"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bulan" />
+    <EditText
+        android:id="@+id/edt_tahun"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tahun" />
+    <EditText
+        android:id="@+id/edt_jumlahSholat"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Jumlah Shalat" />
+
+    <CheckBox
+        android:id="@+id/chkbx_addMembantuOrtu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Membantu Ortu" />
+
+    <CheckBox
+        android:id="@+id/chk_addSekolah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sekolah" />
+
+    <!--<Button-->
+        <!--android:id="@+id/btn_submit"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Submit"/>-->
+
+
+</LinearLayout>

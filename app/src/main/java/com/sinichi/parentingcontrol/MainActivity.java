@@ -4,10 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
 import android.widget.Adapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sinichi.parentingcontrol.model.Model;
@@ -23,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rv;
     private RvAdapter rvAdapter;
     private List<Model> dataList = new ArrayList<>();
+    private ImageView imgAddItem;
+    private EditText edtHari, edtTanggal, edtBulan, edtTahun, edtJumlahSholat;
+    private CheckBox chkMembantuOrtu, chkSekolah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +47,18 @@ public class MainActivity extends AppCompatActivity {
         initComponents();
         initRecyclerView();
 
-        AlarmShalat as = new AlarmShalat(this);
-        as.getDataFromCloud();
+        imgAddItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: Do when the add button clicked
+                makeDialog();
+            }
+        });
     }
 
     private void initComponents() {
         rv = findViewById(R.id.rv_catatan);
-
+        imgAddItem = findViewById(R.id.img_addItems);
     }
 
     private void initRecyclerView() {
@@ -58,6 +78,48 @@ public class MainActivity extends AppCompatActivity {
     private Model addModel(String tanggal, String hari, String bulan, String tahun, String jumlahSholat, boolean isMembantuOrangTua, boolean isSekolah) {
         Model model = new Model(tanggal, hari, bulan, tahun, jumlahSholat, isMembantuOrangTua, isSekolah);
         return model;
+    }
+
+    private void makeDialog() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+        dialog.setIcon(R.drawable.ic_logo);
+        dialog.setTitle("Tambahkan Aktivitas");
+
+        edtHari = dialogView.findViewById(R.id.edt_hari);
+        edtTanggal = dialogView.findViewById(R.id.edt_tanggal);
+        edtBulan = dialogView.findViewById(R.id.edt_bulan);
+        edtTahun = dialogView.findViewById(R.id.edt_tahun);
+        edtJumlahSholat = dialogView.findViewById(R.id.edt_jumlahSholat);
+        chkMembantuOrtu = dialogView.findViewById(R.id.chkbx_addMembantuOrtu);
+        chkSekolah = dialogView.findViewById(R.id.chk_addSekolah);
+
+        dialog.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String hari = edtHari.getText().toString();
+                String tanggal = edtTanggal.getText().toString();
+                String bulan = edtBulan.getText().toString();
+                String tahun = edtTahun.getText().toString();
+                String jumlahSholat = edtJumlahSholat.getText().toString();
+                boolean membantuOrtu = chkMembantuOrtu.isChecked();
+                boolean sekolah = chkSekolah.isChecked();
+
+                dataList.add(addModel(tanggal, hari, bulan, tahun, jumlahSholat, membantuOrtu, sekolah));
+            }
+        });
+
+        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        dialog.show();
     }
 
 }
