@@ -119,7 +119,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        dialog.show();
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
     }
 
 }
