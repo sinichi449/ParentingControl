@@ -21,5 +21,9 @@ public interface UserDao {
     @Query("SELECT * FROM users WHERE tahun IN (:tahun)")
     EntityModel getTahun(String tahun);
 
+    @Query("SELECT * FROM users WHERE jumlahSholat IN (:jumlahSholat)")
+    EntityModel getJumlahSholat(int jumlahSholat);
 
+    @Query("SELECT * FROM users WHERE membantuOrangTua IN (:membantuOrangTua)")
+    EntityModel getIsMembantuOrangTua(boolean membantuOrangTua);
 }
