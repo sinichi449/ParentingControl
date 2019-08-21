@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 //        dataList.add(addModel("5", true, false));
         dataList.add(addModel("16", "Jum'at", "Maret", "2018", "5", true, true));
         dataList.add(addModel("15", "Kamis", "Maret", "2018", "4", false, true));
+        dataList.add(addModel("14", "Rabu", "Maret", "2018", "5", true, true));
+        dataList.add(addModel("13", "Selasa", "Maret", "2018", "4", true, true));
         rvAdapter = new RvAdapter(dataList);
         rv.setAdapter(rvAdapter);
         rv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
