@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo" />
+        android:background="@drawable/ic_logo" />
 
     <ImageView
         android:id="@+id/img_addItems"
@@ -40,6 +40,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_plus" />
+        android:background="@drawable/ic_plus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
