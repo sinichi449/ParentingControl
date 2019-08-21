@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.sinichi.parentingcontrol.R;
 import com.sinichi.parentingcontrol.model.Model;
-
-import java.lang.reflect.Method;
 import java.util.List;
 
 public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
@@ -38,6 +36,10 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
         holder.chkMembantuOrtu.setEnabled(false);
         holder.chkSekolah.setChecked(model.isSekolah());
         holder.chkSekolah.setEnabled(false);
+        holder.tvTanggal.setText(model.getTanggal());
+        holder.tvBulan.setText(model.getBulan());
+        holder.tvHari.setText(model.getHari());
+        holder.tvTahun.setText(model.getTahun());
     }
 
     @Override
@@ -48,12 +50,17 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvJumlahSholat;
         private CheckBox chkMembantuOrtu, chkSekolah;
+        private TextView tvTanggal, tvHari, tvBulan, tvTahun;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvJumlahSholat = itemView.findViewById(R.id.tv_jumlahSholat);
             chkMembantuOrtu = itemView.findViewById(R.id.chkbx_membantuOrtu);
             chkSekolah = itemView.findViewById(R.id.chkbx_sekolah);
+            tvBulan = itemView.findViewById(R.id.tv_bulan);
+            tvHari = itemView.findViewById(R.id.tv_hari);
+            tvTahun = itemView.findViewById(R.id.tv_tahun);
+            tvTanggal = itemView.findViewById(R.id.tv_tanggal);
         }
     }
 }

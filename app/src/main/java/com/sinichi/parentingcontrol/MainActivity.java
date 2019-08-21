@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.widget.Adapter;
+import android.widget.TextView;
 
 import com.sinichi.parentingcontrol.model.Model;
 import com.sinichi.parentingcontrol.recycleadapter.RvAdapter;
@@ -37,18 +38,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void initComponents() {
         rv = findViewById(R.id.rv_catatan);
+
     }
 
     private void initRecyclerView() {
-        dataList.add(addModel("5", true, true));
-        dataList.add(addModel("3", true, false));
+//        dataList.add(addModel("5", true, true));
+//        dataList.add(addModel("3", true, false));
+//        dataList.add(addModel("5", false, false));
+//        dataList.add(addModel("5", true, false));
+        dataList.add(addModel("16", "Jum'at", "Maret", "2018", "5", true, true));
+        dataList.add(addModel("15", "Kamis", "Maret", "2018", "4", false, true));
         rvAdapter = new RvAdapter(dataList);
         rv.setAdapter(rvAdapter);
         rv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
-    private Model addModel(String jumlahSholat, boolean isMembantuOrangTua, boolean isSekolah) {
-        Model model = new Model(jumlahSholat, isMembantuOrangTua, isSekolah);
+    private Model addModel(String tanggal, String hari, String bulan, String tahun, String jumlahSholat, boolean isMembantuOrangTua, boolean isSekolah) {
+        Model model = new Model(tanggal, hari, bulan, tahun, jumlahSholat, isMembantuOrangTua, isSekolah);
         return model;
     }
 
