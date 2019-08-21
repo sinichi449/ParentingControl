@@ -116,13 +116,11 @@
                 android:id="@+id/tv_hari"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:text="Sabtu"
                 android:textColor="#000000"
                 app:fontFamily="@font/arial"
-                app:layout_constraintStart_toEndOf="@+id/tv_tanggal"
-                app:layout_constraintTop_toTopOf="@+id/tv_tanggal" />
+                app:layout_constraintTop_toTopOf="@+id/tv_tanggal"
+                tools:layout_editor_absoluteX="65dp" />
 
             <TextView
                 android:id="@+id/tv_jumlahSholat"
@@ -173,27 +171,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
-                android:background="#74000000"
-                app:layout_constraintBottom_toTopOf="@+id/imageView3"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                tools:layout_editor_absoluteX="0dp" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
-                android:background="#74000000"
-                app:layout_constraintBottom_toTopOf="@+id/imageView2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
             <TextView
                 android:id="@+id/tv_bulan"
                 android:layout_width="wrap_content"
@@ -210,8 +187,8 @@
                 android:id="@+id/tv_tahun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:text="2018"
                 android:textColor="#000000"
                 app:fontFamily="@font/arial"
