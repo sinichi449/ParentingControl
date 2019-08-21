@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Adapter;
 import android.widget.Button;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Do when the add button clicked
-                makeDialog();
+                makeDialog(imgAddItem);
             }
         });
     }
@@ -80,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
         return model;
     }
 
-    private void makeDialog() {
+    private void makeDialog(View view) {
         AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-        LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.custom_dialog, viewGroup, false);
         dialog.setView(dialogView);
         dialog.setCancelable(true);
         dialog.setIcon(R.drawable.ic_logo);
@@ -109,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 boolean sekolah = chkSekolah.isChecked();
 
                 dataList.add(addModel(tanggal, hari, bulan, tahun, jumlahSholat, membantuOrtu, sekolah));
+                rvAdapter = new RvAdapter(dataList);
+                rv.setAdapter(rvAdapter);
+                rv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
             }
         });
 
