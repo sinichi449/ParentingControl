@@ -29,6 +29,8 @@ import com.sinichi.parentingcontrol.rest_api.Jadwal;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -112,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 dataList.add(addModel(tanggal, hari, bulan, tahun, jumlahSholat, membantuOrtu, sekolah));
                 rvAdapter = new RvAdapter(dataList);
                 rv.setAdapter(rvAdapter);
-                rv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, true));
             }
         });
 
@@ -126,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
     }
+
 
 }
 
