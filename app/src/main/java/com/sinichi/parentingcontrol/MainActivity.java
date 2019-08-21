@@ -1,36 +1,26 @@
 package com.sinichi.parentingcontrol;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Display;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Adapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.sinichi.parentingcontrol.model.Model;
 import com.sinichi.parentingcontrol.recycleadapter.RvAdapter;
-import com.sinichi.parentingcontrol.rest_api.Jadwal;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private RvAdapter rvAdapter;
     private List<Model> dataList = new ArrayList<>();
     private ImageView imgAddItem;
-    private EditText edtHari, edtTanggal, edtBulan, edtTahun, edtJumlahSholat;
-    private CheckBox chkMembantuOrtu, chkSekolah;
+    private EditText edtHari, edtTanggal, edtBulan, edtTahun;
+    private CheckBox chkMembantuOrtu, chkSekolah, chkSubuh, chkDhuhr, chkAshr, chkMaghrib, chkIsya;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         initComponents();
         initRecyclerView();
 
+        // Ketika icon plus ditekan
         imgAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,20 +56,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-//        dataList.add(addModel("5", true, true));
-//        dataList.add(addModel("3", true, false));
-//        dataList.add(addModel("5", false, false));
-//        dataList.add(addModel("5", true, false));
+        // Penambahan Data
         dataList.add(addModel("16", "Jum'at", "Maret", "2018", "5", true, true));
         dataList.add(addModel("15", "Kamis", "Maret", "2018", "4", false, true));
         dataList.add(addModel("14", "Rabu", "Maret", "2018", "5", true, true));
         dataList.add(addModel("13", "Selasa", "Maret", "2018", "4", true, true));
-//        rvAdapter = new RvAdapter(dataList);
-//        rv.setAdapter(rvAdapter);
-//        rv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
     private Model addModel(String tanggal, String hari, String bulan, String tahun, String jumlahSholat, boolean isMembantuOrangTua, boolean isSekolah) {
+        // Function untuk menambahkan data baru ke dalam RecycleView
         Model model = new Model(tanggal, hari, bulan, tahun, jumlahSholat, isMembantuOrangTua, isSekolah);
         rvAdapter = new RvAdapter(dataList);
         rv.setAdapter(rvAdapter);
@@ -87,41 +73,51 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void makeDialog(View view) {
+        // Membuat Custom AlertDialog
         AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
         ViewGroup viewGroup = findViewById(android.R.id.content);
+        // Inflate layout custom dialog
         View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.custom_dialog, viewGroup, false);
         dialog.setView(dialogView);
         dialog.setCancelable(true);
         dialog.setIcon(R.drawable.ic_logo);
         dialog.setTitle("Tambahkan Aktivitas");
 
+        // Init components
         edtHari = dialogView.findViewById(R.id.edt_hari);
         edtTanggal = dialogView.findViewById(R.id.edt_tanggal);
         edtBulan = dialogView.findViewById(R.id.edt_bulan);
         edtTahun = dialogView.findViewById(R.id.edt_tahun);
-        edtJumlahSholat = dialogView.findViewById(R.id.edt_jumlahSholat);
+        chkSubuh = dialogView.findViewById(R.id.chk_subuh);
+        chkDhuhr = dialogView.findViewById(R.id.chk_dhuhr);
+        chkAshr = dialogView.findViewById(R.id.chk_asr);
+        chkMaghrib = dialogView.findViewById(R.id.chk_maghrib);
+        chkIsya = dialogView.findViewById(R.id.chk_isya);
         chkMembantuOrtu = dialogView.findViewById(R.id.chkbx_addMembantuOrtu);
         chkSekolah = dialogView.findViewById(R.id.chk_addSekolah);
 
+        // Auto complete untuk colom tanggal, hari, bulan, dsb pada EditText Custom Alert Dialog
         CurrentDimension currentDimension = new CurrentDimension();
         edtHari.setText(currentDimension.getDays());
         edtTanggal.setText(currentDimension.getDate());
         edtBulan.setText(currentDimension.getMonth());
         edtTahun.setText(currentDimension.getYear());
 
-
+        // Klik ok pada custom AlertDialog
         dialog.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                checkForBlankForm();
                 String hari = edtHari.getText().toString();
                 String tanggal = edtTanggal.getText().toString();
                 String bulan = edtBulan.getText().toString();
                 String bulanDefined = defineBulan(bulan);
                 String tahun = edtTahun.getText().toString();
-                String jumlahSholat = edtJumlahSholat.getText().toString();
+                String jumlahSholat = String.valueOf(hitungJumlahSholat(chkSubuh, chkDhuhr, chkAshr, chkMaghrib, chkIsya));
                 boolean membantuOrtu = chkMembantuOrtu.isChecked();
                 boolean sekolah = chkSekolah.isChecked();
 
+                // Memasukkan data dari EditText menuju List<Model>
                 dataList.add(addModel(tanggal, hari, bulanDefined, tahun, jumlahSholat, membantuOrtu, sekolah));
             }
         });
@@ -137,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    // Function untuk mendefinisikan nama bulan berdasarkan angka bulan
     private String defineBulan(String bulan) {
         switch (bulan) {
             case "1":
@@ -179,6 +176,36 @@ public class MainActivity extends AppCompatActivity {
         return bulan;
     }
 
+    private int hitungJumlahSholat(CheckBox subuh, CheckBox dhuhr, CheckBox ashr, CheckBox maghrib, CheckBox isya) {
+        int counter = 0;
+        if (subuh.isChecked()) {
+            counter++;
+        }
+        if (dhuhr.isChecked()) {
+            counter++;
+        }
+        if (ashr.isChecked()) {
+            counter++;
+        }
+        if (maghrib.isChecked()) {
+            counter++;
+        }
+        if (isya.isChecked()) {
+            counter++;
+        }
+        return counter;
+    }
 
+    private void checkForBlankForm() {
+        if (TextUtils.isEmpty(edtHari.getText().toString())) {
+            edtHari.setError("Mohon isi kotak yang kosong");
+        } else if (TextUtils.isEmpty(edtTanggal.getText().toString())) {
+            edtTanggal.setError("Mohon isi kotak yang kosong");
+        } else if (TextUtils.isEmpty(edtBulan.getText().toString())) {
+            edtBulan.setError("Mohon isi kotak yang kosong");
+        } else if (TextUtils.isEmpty(edtTahun.getText().toString())) {
+            edtTahun.setError("Mohon isi kotak yang kosong");
+        }
+    }
 }
 
