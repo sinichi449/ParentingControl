@@ -4,11 +4,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sinichi.parentingcontrol.MainActivity;
 import com.sinichi.parentingcontrol.R;
 import com.sinichi.parentingcontrol.model.Model;
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.List;
 public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
 
     List<Model> dataList;
+
 
     public RvAdapter(List<Model> dataList) {
         this.dataList = dataList;

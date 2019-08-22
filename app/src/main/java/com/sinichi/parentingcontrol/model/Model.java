@@ -16,6 +16,16 @@ public class Model {
         this.bulan = bulan;
         this.tahun = tahun;
         this.jumlahSholat = jumlahSholat;
+        this.sekolah = sekolah;
+        this.membantuOrangTua = membantuOrangTua;
+        this.sekolah = sekolah;
+    }
+
+    public void autoAddModel(String tanggal, String hari, String bulan, String tahun, boolean membantuOrangTua, boolean sekolah) {
+        this.tanggal = tanggal;
+        this.hari = hari;
+        this.bulan = bulan;
+        this.tahun = tahun;
         this.membantuOrangTua = membantuOrangTua;
         this.sekolah = sekolah;
     }
