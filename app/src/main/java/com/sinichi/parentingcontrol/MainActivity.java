@@ -16,15 +16,20 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
+import com.sinichi.parentingcontrol.db.MyDatabase;
+import com.sinichi.parentingcontrol.db.Users;
 import com.sinichi.parentingcontrol.model.Model;
 import com.sinichi.parentingcontrol.recycleadapter.RvAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MyDatabase database;
     private RecyclerView rv;
     private RvAdapter rvAdapter;
     private List<Model> dataList = new ArrayList<>();
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        database = Room.databaseBuilder(MainActivity.this, MyDatabase.class, "dataAnak").build();
 
         initComponents();
         initRecyclerView();
@@ -61,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         dataList.add(addModel("15", "Kamis", "Maret", "2018", "4", false, true));
         dataList.add(addModel("14", "Rabu", "Maret", "2018", "5", true, true));
         dataList.add(addModel("13", "Selasa", "Maret", "2018", "4", true, true));
+
+
     }
 
     private Model addModel(String tanggal, String hari, String bulan, String tahun, String jumlahSholat, boolean isMembantuOrangTua, boolean isSekolah) {
@@ -118,7 +127,14 @@ public class MainActivity extends AppCompatActivity {
                 boolean sekolah = chkSekolah.isChecked();
 
                 // Memasukkan data dari EditText menuju List<Model>
-                dataList.add(addModel(tanggal, hari, bulanDefined, tahun, jumlahSholat, membantuOrtu, sekolah));
+                Model m = addModel(tanggal, hari, bulanDefined, tahun, jumlahSholat, membantuOrtu, sekolah);
+                dataList.add(m);
+                List<Users> dataUser =new ArrayList<>();
+                Random random = new Random();
+                int number = random.nextInt();
+                Users u = new Users(number, tanggal, hari, bulanDefined, tahun, Integer.parseInt(jumlahSholat), membantuOrtu, sekolah);
+                dataUser.add(u);
+
             }
         });
 
@@ -132,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
     }
+
 
     // Function untuk mendefinisikan nama bulan berdasarkan angka bulan
     private String defineBulan(String bulan) {
