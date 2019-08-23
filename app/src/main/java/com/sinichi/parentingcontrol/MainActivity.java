@@ -1,6 +1,5 @@
 package com.sinichi.parentingcontrol;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,13 +8,17 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
-import com.sinichi.parentingcontrol.db.MyDatabase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.sinichi.parentingcontrol.model.Model;
 import com.sinichi.parentingcontrol.recycleadapter.RvAdapter;
 
@@ -24,18 +27,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MyDatabase database;
     private View view;
     private RecyclerView rv;
     private RvAdapter rvAdapter;
     private List<Model> dataList = new ArrayList<>();
     private ImageView imgAddItem;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        database = Room.databaseBuilder(MainActivity.this, MyDatabase.class, "dataAnak").build();
 
         initComponents();
 
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 //TODO: Buat AlertDialog Membantu Orang Tua
                 makeMembantuOrtuDialog();
                 //TODO: Buat AlertDialog Sekolah
-
+                makeSekolahDialog();
             }
         });
     }
@@ -55,11 +57,30 @@ public class MainActivity extends AppCompatActivity {
         imgAddItem = findViewById(R.id.img_addItems);
         rv = findViewById(R.id.rv_catatan);
 
+        LayoutInflater inflater = getLayoutInflater();
+        View v = inflater.inflate(R.layout.layout_item, null);
+
+        final CheckBox chkMembantuOrtu = v.findViewById(R.id.chkbx_membantuOrtu);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("membantuOrtu");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                boolean membantuOrtu = dataSnapshot.getValue(boolean.class);
+                chkMembantuOrtu.setChecked(membantuOrtu);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         newItemForNewDay();
     }
 
     private void addNewModel(String tanggal, String hari, String bulan, String tahun, String jumlahSholat, boolean isMembantuOrangTua, boolean isSekolah) {
-        Model model = new Model(tanggal, hari, bulan, tahun, jumlahSholat, isMembantuOrangTua, isSekolah);
+        Model model = new Model(tanggal, hari, bulan, tahun, jumlahSholat, isMembantuOrangTua, isSekolah); // temp data
         dataList.add(model);
         rvAdapter = new RvAdapter(dataList);
         rv.setAdapter(rvAdapter);
@@ -81,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Edit datalist bagian membantu orang tua menjadi tercentang
-
+                databaseReference.setValue(true);
                 alertDialog.dismiss();
             }
         });
@@ -90,8 +111,36 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Edit dataList bagian membantu orang tua menjadi tidak tercentang
-
+                databaseReference.setValue(false);
                 alertDialog.dismiss();
+            }
+        });
+    }
+
+    private void makeSekolahDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.layout_dialogsklhbg, null);
+        builder.setView(dialogView);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+        ImageView imgCeklisSklh = dialogView.findViewById(R.id.img_ceklilsSklh);
+        ImageView imgSilangSklh = dialogView.findViewById(R.id.img_silangSklh);
+
+        imgCeklisSklh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: Aktifkan ceklis pada sekolah
+
+            }
+        });
+
+        imgSilangSklh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: Nonaktifkan ceklis pada sekolah
+
             }
         });
     }
