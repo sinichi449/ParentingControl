@@ -13,6 +13,10 @@ public class Model {
     boolean membantuOrangTua;
     boolean sekolah;
 
+    public Model() {
+
+    }
+
     public Model(String tanggal, String hari, String bulan, String tahun, String jumlahSholat, boolean membantuOrangTua, boolean sekolah) {
         this.tanggal = tanggal;
         this.hari = hari;

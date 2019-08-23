@@ -37,6 +37,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Model model = dataList.get(position);
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
         holder.tvJumlahSholat.setText(model.getJumlahSholat());
         holder.chkMembantuOrtu.setChecked(model.isMembantuOrangTua());
         holder.chkMembantuOrtu.setEnabled(false);
