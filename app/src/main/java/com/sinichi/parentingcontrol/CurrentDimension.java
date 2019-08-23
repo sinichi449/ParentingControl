@@ -6,7 +6,7 @@ public class CurrentDimension {
 
     Calendar calendar;
 
-    String getDays() {
+    public String getDays() {
         calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
         String hari = "";
@@ -36,19 +36,19 @@ public class CurrentDimension {
         return hari;
     }
 
-    String getDate() {
+    public String getDate() {
         calendar = Calendar.getInstance();
         int date = calendar.get(Calendar.DATE);
         return String.valueOf(date);
     }
 
-    String getMonth() {
+    public String getMonth() {
         calendar = Calendar.getInstance();
         int month = calendar.get(Calendar.MONTH);
         return String.valueOf(month);
     }
 
-    String getYear() {
+    public String getYear() {
         calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         return String.valueOf(year);

@@ -1,7 +1,6 @@
-package com.sinichi.parentingcontrol;
+package com.sinichi.parentingcontrol.activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -19,6 +18,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.sinichi.parentingcontrol.CurrentDimension;
+import com.sinichi.parentingcontrol.R;
 import com.sinichi.parentingcontrol.model.Model;
 import com.sinichi.parentingcontrol.recycleadapter.RvAdapter;
 
@@ -76,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        addNewModel("22", "Kamis", "Agustus", "2019", "4", true, true);
+        addNewModel("21", "Rabu", "Agustus", "2019", "3", true, true);
+        addNewModel("20", "Selasa", "Agustus", "2019", "4", false, true);
+        addNewModel("19", "Senin", "Agustus", "2019", "5", true, true);
         newItemForNewDay();
     }
 
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         dataList.add(model);
         rvAdapter = new RvAdapter(dataList);
         rv.setAdapter(rvAdapter);
-        rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, true));
+        rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false));
     }
 
     private void makeMembantuOrtuDialog() {
