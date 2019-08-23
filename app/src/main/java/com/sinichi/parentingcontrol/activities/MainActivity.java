@@ -63,19 +63,19 @@ public class MainActivity extends AppCompatActivity {
 
         final CheckBox chkMembantuOrtu = v.findViewById(R.id.chkbx_membantuOrtu);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("membantuOrtu");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                boolean membantuOrtu = dataSnapshot.getValue(boolean.class);
-                chkMembantuOrtu.setChecked(membantuOrtu);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        databaseReference = FirebaseDatabase.getInstance().getReference().child("membantuOrtu");
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                boolean membantuOrtu = dataSnapshot.getValue(boolean.class);
+//                chkMembantuOrtu.setChecked(membantuOrtu);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
         addNewModel("22", "Kamis", "Agustus", "2019", "4", true, true);
         addNewModel("21", "Rabu", "Agustus", "2019", "3", true, true);
