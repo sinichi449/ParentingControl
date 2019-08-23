@@ -1,5 +1,8 @@
 package com.sinichi.parentingcontrol.model;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class Model {
 
     String tanggal;

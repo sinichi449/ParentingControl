@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.sinichi.parentingcontrol.MainActivity;
 import com.sinichi.parentingcontrol.R;
 import com.sinichi.parentingcontrol.model.Model;
@@ -18,7 +20,7 @@ import java.util.List;
 public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
 
     List<Model> dataList;
-
+    DatabaseReference mDatabase;
 
     public RvAdapter(List<Model> dataList) {
         this.dataList = dataList;
@@ -34,6 +36,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Model model = dataList.get(position);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         holder.tvJumlahSholat.setText(model.getJumlahSholat());
         holder.chkMembantuOrtu.setChecked(model.isMembantuOrangTua());
         holder.chkMembantuOrtu.setEnabled(false);
