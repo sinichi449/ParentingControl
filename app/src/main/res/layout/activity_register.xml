@@ -36,46 +36,46 @@
             android:background="@drawable/material_signup"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_my"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:fontFamily="@font/arial"
-            android:gravity="center"
-            android:text="Make Your"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tv_my"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/arial"
+        android:gravity="center"
+        android:text="Make Your"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/arial"
-            android:text="Account"
-            android:textColor="@color/colorWhite"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_my" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/arial"
+        android:text="Account"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_my" />
 
-        <TextView
-            android:id="@+id/tv_reg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/arial"
-            android:text="REGISTER"
-            android:textColor="@color/colorBlack"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+    <TextView
+        android:id="@+id/tv_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/arial"
+        android:text="REGISTER"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
@@ -103,7 +103,7 @@
                     android:fontFamily="@font/arial"
                     android:text="Email"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="italic" />
 
                 <EditText
@@ -119,7 +119,7 @@
                     android:fontFamily="@font/arial"
                     android:text="Username"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="italic" />
 
                 <EditText
@@ -135,7 +135,7 @@
                     android:fontFamily="@font/arial"
                     android:text="Password"
                     android:textColor="@color/colorAccent"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="italic" />
 
                 <EditText
