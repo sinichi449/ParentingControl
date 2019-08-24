@@ -28,6 +28,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO: Authenticate user data
 
+                Toast.makeText(LoginActivity.this, "Login berhasil. Selamat Datang di Parenting Control.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
             }
