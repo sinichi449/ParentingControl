@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.RegisterActivity">
 
-    <!--<ScrollView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/imageView7"
@@ -31,9 +31,9 @@
         <ImageView
             android:id="@+id/imageView6"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginBottom="-2dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/material_signup"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sudahPunyaAkun"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
@@ -163,7 +163,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_register"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginTop="5dp"
@@ -176,6 +176,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <TextView
+            android:id="@+id/tv_sudahPunyaAkun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -186,10 +187,16 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_login" />
+            app:layout_constraintTop_toBottomOf="@id/btn_register" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

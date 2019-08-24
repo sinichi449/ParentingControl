@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         dataList.add(model);
         rvAdapter = new RvAdapter(dataList);
         rv.setAdapter(rvAdapter);
-        rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, false));
+        rv.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.VERTICAL, true));
     }
 
     private void makeMembantuOrtuDialog() {
@@ -165,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
             //TODO: Kirim data menuju firebase
             addNewModel(cd.getDate(), cd.getDays(), defineMonthFromNumber(cd.getMonth()), cd.getYear(), "0", false, false); // temp data
         }
+
     }
 
     private String defineMonthFromNumber(String number) {
