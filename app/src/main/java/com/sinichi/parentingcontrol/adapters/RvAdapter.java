@@ -1,4 +1,4 @@
-package com.sinichi.parentingcontrol.recycleadapter;
+package com.sinichi.parentingcontrol.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.sinichi.parentingcontrol.R;
 import com.sinichi.parentingcontrol.model.Model;
 import java.util.List;
 
 public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
 
-    List<Model> dataList;
-    DatabaseReference mDatabase;
+    private List<Model> dataList;
+    private OnRecyclerViewClickListener listener;
 
     public RvAdapter(List<Model> dataList) {
         this.dataList = dataList;
@@ -34,8 +32,6 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Model model = dataList.get(position);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
         holder.tvJumlahSholat.setText(model.getJumlahSholat());
         holder.chkMembantuOrtu.setChecked(model.isMembantuOrangTua());
         holder.chkMembantuOrtu.setEnabled(false);
@@ -66,6 +62,22 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
             tvHari = itemView.findViewById(R.id.tv_hari);
             tvTahun = itemView.findViewById(R.id.tv_tahun);
             tvTanggal = itemView.findViewById(R.id.tv_tanggal);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Model model = dataList.get(getAdapterPosition());
+                    listener.onClick(model);
+                }
+            });
         }
+    }
+
+    public interface OnRecyclerViewClickListener {
+        void onClick(Model model);
+    }
+
+    public void setListener(OnRecyclerViewClickListener listener) {
+        this.listener = listener;
     }
 }

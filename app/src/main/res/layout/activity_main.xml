@@ -5,41 +5,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
-    android:background="@drawable/ly_background">
+    tools:context=".activities.MainActivity">
+    <!--android:background="@drawable/ly_background">-->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_catatan"
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--android:id="@+id/rv_catatan"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="550dp"-->
+        <!--android:layout_marginTop="32dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/imageView4">-->
+
+    <!--</androidx.recyclerview.widget.RecyclerView>-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView4"-->
+        <!--android:layout_width="80dp"-->
+        <!--android:layout_height="80dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:background="@drawable/ic_logo"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/img_addItems"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_marginBottom="36dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.498"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--android:background="@drawable/ic_plus" />-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.93"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:layout_constraintTop_toBottomOf="@id/guideline3"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/ic_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/img_addItems"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/ic_plus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

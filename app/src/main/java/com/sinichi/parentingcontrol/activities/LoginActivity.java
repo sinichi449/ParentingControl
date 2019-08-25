@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
-        btnLogin = findViewById(R.id.btn_register);
+        btnLogin = findViewById(R.id.btn_login);
         tvRegister = findViewById(R.id.tv_register);
     }
 }

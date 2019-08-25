@@ -13,10 +13,6 @@ public class Model {
     boolean membantuOrangTua;
     boolean sekolah;
 
-    public Model() {
-
-    }
-
     public Model(String tanggal, String hari, String bulan, String tahun, String jumlahSholat, boolean membantuOrangTua, boolean sekolah) {
         this.tanggal = tanggal;
         this.hari = hari;
@@ -25,17 +21,8 @@ public class Model {
         this.jumlahSholat = jumlahSholat;
         this.sekolah = sekolah;
         this.membantuOrangTua = membantuOrangTua;
-        this.sekolah = sekolah;
     }
 
-    public void autoAddModel(String tanggal, String hari, String bulan, String tahun, boolean membantuOrangTua, boolean sekolah) {
-        this.tanggal = tanggal;
-        this.hari = hari;
-        this.bulan = bulan;
-        this.tahun = tahun;
-        this.membantuOrangTua = membantuOrangTua;
-        this.sekolah = sekolah;
-    }
 
     public String getTanggal() {
         return tanggal;

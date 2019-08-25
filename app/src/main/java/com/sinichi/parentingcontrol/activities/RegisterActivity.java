@@ -47,6 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void initComponents() {
         tvLogin = findViewById(R.id. tv_sudahPunyaAkun);
-        btnRegister = findViewById(R.id.btn_register);
+        btnRegister = findViewById(R.id.btn_login);
     }
 }
