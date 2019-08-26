@@ -53,6 +53,6 @@ public class LoginActivity extends AppCompatActivity {
     private void initComponents() {
         btnLogin = findViewById(R.id.btn_login);
         tvRegister = findViewById(R.id.tv_register);
-        edtPassword = findViewById(R.id.edt_password);
+        edtPassword = findViewById(R.id.tiedt_password);
     }
 }

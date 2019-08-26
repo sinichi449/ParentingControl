@@ -89,7 +89,7 @@
             android:layout_marginRight="8dp"
             android:text="LOGIN"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:fontFamily="@font/arial"
             app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +125,7 @@
                     android:fontFamily="@font/arial"
                     android:text="Username"
                     android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
+                    android:textSize="15spsp"
                     android:textStyle="italic" />
 
                 <EditText
@@ -141,7 +141,7 @@
                     android:fontFamily="@font/arial"
                     android:text="Password"
                     android:textColor="@color/colorAccent"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:textStyle="italic" />
 
                 <com.google.android.material.textfield.TextInputLayout
