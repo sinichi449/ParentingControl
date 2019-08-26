@@ -19,11 +19,12 @@
 
             <ImageView
                 android:id="@+id/iv_map"
-                android:background="@drawable/ic_map"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/ic_map"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
