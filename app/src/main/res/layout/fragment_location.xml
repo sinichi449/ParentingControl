@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.LocationFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,15 +12,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Location Service"
-            android:gravity="center"
-            android:textSize="30sp"
-            android:textColor="#7A7A7A"
-            android:fontFamily="cursive"/>
+            android:background="@drawable/location_background">
 
+            <ImageView
+                android:id="@+id/iv_map"
+                android:background="@drawable/ic_map"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
 </FrameLayout>
