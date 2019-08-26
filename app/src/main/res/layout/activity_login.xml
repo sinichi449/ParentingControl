@@ -125,7 +125,7 @@
                     android:fontFamily="@font/arial"
                     android:text="Username"
                     android:textColor="@color/colorAccent"
-                    android:textSize="15spsp"
+                    android:textSize="15sp"
                     android:textStyle="italic" />
 
                 <EditText
