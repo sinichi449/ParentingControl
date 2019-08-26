@@ -4,18 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.ChatFragment">
+    tools:context=".fragments.ChatFragment"
+    android:background="@drawable/chat_background">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrainLayout1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/chat_background">
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/iv_map"
@@ -26,19 +30,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-        
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrainLayout2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/constrainLayout1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorGreeen">
-            </androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
             <LinearLayout
                 android:padding="10dp"
                 android:gravity="center"
@@ -46,17 +63,22 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
                 <EditText
-                    android:paddingBottom="3dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight=".70"
+                    android:id="@+id/edt_textPanel"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight=".70"
                     android:background="@drawable/textPanel"
-                    android:hint="Add item" />
+                    android:hint="Add item"
+                    android:paddingBottom="3dp" />
 
                 <ImageView
+                    android:id="@+id/ic_send"
                     android:layout_gravity="center"
                     android:foregroundGravity="center"
                     android:padding="13dp"
@@ -66,7 +88,9 @@
                     android:layout_height="50dp" />
 
             </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+       </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </FrameLayout>
+
