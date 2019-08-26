@@ -144,6 +144,20 @@
                     android:textSize="18sp"
                     android:textStyle="italic" />
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_passwordLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiedt_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPassword"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
 
 
             </LinearLayout>
