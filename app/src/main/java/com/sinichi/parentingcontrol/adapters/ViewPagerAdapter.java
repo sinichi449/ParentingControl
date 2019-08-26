@@ -4,9 +4,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.sinichi.parentingcontrol.fragments.DataFragment;
+import com.sinichi.parentingcontrol.fragments.ChatFragment;
 import com.sinichi.parentingcontrol.fragments.LocationFragment;
 import com.sinichi.parentingcontrol.fragments.OverviewFragment;
+import com.sinichi.parentingcontrol.fragments.ProfileFragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -23,7 +24,9 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 return new LocationFragment();
             case 2:
-                return new DataFragment();
+                return new ChatFragment();
+            case 3:
+                return new ProfileFragment();
         }
         return null;
     }
