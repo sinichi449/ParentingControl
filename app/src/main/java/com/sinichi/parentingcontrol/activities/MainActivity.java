@@ -23,9 +23,11 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_headset_black_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_memory_black_24dp);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_near_me_black_24dp);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_assessment_black_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_near_me_black_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_chat_black_24dp);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_people_black_24dp);
+
     }
 
     @Override

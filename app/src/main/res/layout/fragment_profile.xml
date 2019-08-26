@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Another Unpredicted\nFeature"
+            android:text="Parent &amp; Child Profile"
             android:gravity="center"
             android:textColor="#7A7A7A"
             android:textSize="30sp"
