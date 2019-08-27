@@ -56,38 +56,40 @@
        <androidx.constraintlayout.widget.ConstraintLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
-            <LinearLayout
-                android:padding="10dp"
-                android:gravity="center"
-                android:weightSum="1"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
 
-                <EditText
-                    android:id="@+id/edt_textPanel"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight=".70"
-                    android:background="@drawable/textPanel"
-                    android:hint="Add item"
-                    android:paddingBottom="3dp" />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="8dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:padding="10dp"
+               android:weightSum="1"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent">
 
-                <ImageView
-                    android:id="@+id/ic_send"
-                    android:layout_gravity="center"
-                    android:foregroundGravity="center"
-                    android:padding="13dp"
-                    android:background="@drawable/ic_send"
-                    android:layout_weight=".30"
-                    android:layout_width="70dp"
-                    android:layout_height="50dp" />
+               <EditText
+                   android:id="@+id/edt_textPanel"
+                   android:layout_width="match_parent"
+                   android:layout_height="45dp"
+                   android:layout_marginRight="10dp"
+                   android:layout_weight=".70"
+                   android:background="@drawable/textPanel"
+                   android:hint="Add item"
+                   android:paddingBottom="3dp" />
 
-            </LinearLayout>
+               <ImageView
+                   android:id="@+id/ic_send"
+                   android:layout_width="70dp"
+                   android:layout_height="50dp"
+                   android:layout_gravity="center"
+                   android:layout_weight=".30"
+                   android:background="@drawable/ic_send"
+                   android:foregroundGravity="center"
+                   android:padding="13dp" />
+
+           </LinearLayout>
        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
