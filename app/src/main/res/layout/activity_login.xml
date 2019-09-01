@@ -36,13 +36,11 @@
         </LinearLayout>
 
 
-        <Button
+        <com.google.android.gms.common.SignInButton
             android:id="@+id/btn_login"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginTop="25dp"
-            android:background="@drawable/login_button"
-            android:text="Login"
             android:textColor="#ffffff"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
