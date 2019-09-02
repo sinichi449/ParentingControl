@@ -5,6 +5,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +21,13 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.sinichi.parentingcontrol.CurrentDimension;
 import com.sinichi.parentingcontrol.R;
 import com.sinichi.parentingcontrol.model.Model;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -141,24 +143,20 @@ public class OverviewFragment extends Fragment implements GoogleApiClient.OnConn
     private void newItemForNewDay() {
         CurrentDimension cd = new CurrentDimension();
         LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.layout_item, null);
 
-        // Mendapatkan item tanggal
-        TextView tvTanggal = view.findViewById(R.id.tv_tanggal);
-        TextView tvBulan = view.findViewById(R.id.tv_bulan);
-        TextView tvTahun = view.findViewById(R.id.tv_tahun);
+        kegiatatanRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Model model = dataSnapshot.getValue(Model.class);
+                Log.i("Result", model.getTanggal());
 
-        String tanggal = tvTanggal.getText().toString();
-        String tanggalSekarang = cd.getDate();
-        String bulanSekarang = defineMonthFromNumber(cd.getMonth());
-        String tahunSekarang = cd.getYear();
+            }
 
-        // Jika hari ini tidak tersedia, buat database baru
-        if (!tanggalSekarang.equals(tanggal) && !bulanSekarang.equals(tvBulan.getText().toString())
-                && !tahunSekarang.equals(tvTahun.getText().toString())) {
-            //TODO: Kirim data menuju firebase
-            addModel(cd.getDate(), cd.getDays(), defineMonthFromNumber(cd.getMonth()), cd.getYear(), "0", false, false); // temp data
-        }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
