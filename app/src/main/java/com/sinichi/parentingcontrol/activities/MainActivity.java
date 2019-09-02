@@ -3,8 +3,11 @@ package com.sinichi.parentingcontrol.activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser mFirebaseUser;
     private SharedPreferences mSharedPrefs;
     private SharedPreferences.Editor mEditor;
+    private static MainActivity instance;
 
     private void initComponents() {
         tabLayout = findViewById(R.id.tabLayout);
@@ -47,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         mSharedPrefs = MainActivity.this.getSharedPreferences(PREFS, MODE_PRIVATE);
+        instance = this;
 
         initComponents();
 
@@ -84,5 +89,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public static MainActivity getInstance() {
+        return instance;
     }
 }

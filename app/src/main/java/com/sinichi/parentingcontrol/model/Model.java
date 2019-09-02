@@ -5,13 +5,17 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class Model {
 
-    String tanggal;
-    String hari;
-    String bulan;
-    String tahun;
-    String jumlahSholat;
-    boolean membantuOrangTua;
-    boolean sekolah;
+    private String id;
+    private String tanggal;
+    private String hari;
+    private String bulan;
+    private String tahun;
+    private String jumlahSholat;
+    private boolean membantuOrangTua;
+    private boolean sekolah;
+
+    public Model() {
+    }
 
     public Model(String tanggal, String hari, String bulan, String tahun, String jumlahSholat, boolean membantuOrangTua, boolean sekolah) {
         this.tanggal = tanggal;
@@ -23,6 +27,13 @@ public class Model {
         this.membantuOrangTua = membantuOrangTua;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTanggal() {
         return tanggal;

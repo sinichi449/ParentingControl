@@ -4,7 +4,9 @@ package com.sinichi.parentingcontrol.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -75,10 +79,10 @@ public class ChatFragment extends Fragment implements GoogleApiClient.OnConnecti
 
         public MessageViewHolder(View v) {
             super(v);
-            messageTextView = (TextView) itemView.findViewById(R.id.tv_message_chat);
-            messageImageView = (ImageView) itemView.findViewById(R.id.img_message_chat);
-            messengerTextView = (TextView) itemView.findViewById(R.id.tv_username_chat);
-            messengerImageView = (CircleImageView) itemView.findViewById(R.id.imgUserPhoto);
+            messageTextView = itemView.findViewById(R.id.tv_message_chat);
+            messageImageView = itemView.findViewById(R.id.img_message_chat);
+            messengerTextView = itemView.findViewById(R.id.tv_username_chat);
+            messengerImageView = itemView.findViewById(R.id.imgUserPhoto);
         }
     }
 
@@ -283,6 +287,8 @@ public class ChatFragment extends Fragment implements GoogleApiClient.OnConnecti
         });
 
 
+
+
         return view;
     }
 
@@ -367,4 +373,5 @@ public class ChatFragment extends Fragment implements GoogleApiClient.OnConnecti
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         Toast.makeText(getContext(), "Google Play Service Error!", Toast.LENGTH_SHORT).show();
     }
+
 }

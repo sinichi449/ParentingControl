@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class CurrentDimension {
 
-    Calendar calendar;
+    private Calendar calendar;
 
     public String getDays() {
         calendar = Calendar.getInstance();

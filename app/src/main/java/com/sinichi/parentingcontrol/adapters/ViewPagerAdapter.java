@@ -1,9 +1,17 @@
 package com.sinichi.parentingcontrol.adapters;
 
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.sinichi.parentingcontrol.R;
+import com.sinichi.parentingcontrol.activities.MainActivity;
 import com.sinichi.parentingcontrol.fragments.ChatFragment;
 import com.sinichi.parentingcontrol.fragments.LocationFragment;
 import com.sinichi.parentingcontrol.fragments.OverviewFragment;
@@ -35,4 +43,5 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return 4;
     }
+
 }
